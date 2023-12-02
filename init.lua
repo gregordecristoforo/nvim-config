@@ -68,6 +68,9 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
+  
+  -- leap for code search
+  'ggandor/leap.nvim',
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -648,3 +651,5 @@ require("nvim-tree").setup({
 -- vim: ts=2 sts=2 sw=2 et
 
 require'lspconfig'.rust_analyzer.setup{}
+
+require('leap').add_default_mappings()
