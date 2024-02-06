@@ -79,6 +79,8 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  'github/copilot.vim',
+
   -- Toggleterm
   {'akinsho/toggleterm.nvim', version = "*", config = true},
 
