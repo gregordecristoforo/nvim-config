@@ -36,6 +36,11 @@ require('lazy').setup({
   {'github/copilot.vim'},
   {'akinsho/toggleterm.nvim', version = "*", config = true},
   {
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+-- or                              , branch = '0.1.x',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  {
     "folke/flash.nvim",
     event = "VeryLazy",
     ---@type Flash.Config
@@ -90,3 +95,9 @@ require('mason-lspconfig').setup({
 
 --git stuff
 require('gitsigns').setup()
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', ' ff', builtin.find_files, {})
+vim.keymap.set('n', ' fg', builtin.live_grep, {})
+vim.keymap.set('n', ' fb', builtin.buffers, {})
+vim.keymap.set('n', ' fh', builtin.help_tags, {})
