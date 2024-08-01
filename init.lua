@@ -33,6 +33,7 @@ require('lazy').setup({
   {'L3MON4D3/LuaSnip'},
   {'numToStr/Comment.nvim'},
   {'lewis6991/gitsigns.nvim'},
+  {'github/copilot.vim'},
   {'akinsho/toggleterm.nvim', version = "*", config = true},
   {
     "folke/flash.nvim",
