@@ -32,6 +32,7 @@ require('lazy').setup({
   {'hrsh7th/nvim-cmp'},
   {'L3MON4D3/LuaSnip'},
   {'numToStr/Comment.nvim'},
+  {'lewis6991/gitsigns.nvim'},
   {'akinsho/toggleterm.nvim', version = "*", config = true},
   {
     "folke/flash.nvim",
@@ -85,3 +86,6 @@ require('mason-lspconfig').setup({
     end,
   },
 })
+
+--git stuff
+require('gitsigns').setup()
