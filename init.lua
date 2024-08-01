@@ -1,3 +1,5 @@
+-- setup is follows this guide: https://lsp-zero.netlify.app/v3.x/tutorial.html
+
 vim.wo.number = true
 vim.opt.clipboard="unnamed,unnamedplus"
 
