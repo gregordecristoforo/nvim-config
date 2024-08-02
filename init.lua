@@ -89,7 +89,22 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   handlers = {
     function(server_name)
-      require('lspconfig')[server_name].setup({})
+      local opts = {} -- default options for all LSP servers
+
+      -- Specific settings for the Python LSP server
+      if server_name == "pylsp" then
+        opts.settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                ignore = {'E501'},  -- Ignore the E501 error
+                maxLineLength = 85 -- Set the maximum allowed line length
+              }
+            }
+          }
+        }
+      end
+      require('lspconfig')[server_name].setup(opts)
     end,
   },
 })
