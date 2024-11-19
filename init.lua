@@ -161,3 +161,5 @@ local function remove_current_file()
 end
 
 vim.keymap.set('n', ' hr', remove_current_file)
+
+vim.keymap.set("n", " rn", vim.lsp.buf.rename)  -- this required pyright as an lsp 
