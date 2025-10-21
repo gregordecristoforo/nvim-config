@@ -54,7 +54,33 @@ require('lazy').setup({
       { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
-  }
+  },
+  -- {
+  -- "CopilotC-Nvim/CopilotChat.nvim",
+  -- dependencies = {
+  --   { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+  --   { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+  -- },
+  -- build = "make tiktoken", -- Only on MacOS or Linux
+  -- opts = {
+  --   -- See Configuration section for options
+  -- },
+  -- -- See Commands section for default commands if you want to lazy load on them
+  -- },
+  --
+  -- supermaven
+  {
+      "supermaven-inc/supermaven-nvim",
+      config = function()
+        require("supermaven-nvim").setup({
+	  keymaps = {
+	    accept_suggestion = "<C-H>",
+	    clear_suggestion = "<C-]>",
+	    accept_word = "<C-j>",
+	  },
+	})
+      end,
+    }
 })
 
 -- colorscheme
@@ -117,6 +143,20 @@ vim.keymap.set('n', ' ff', builtin.find_files, {})
 vim.keymap.set('n', ' fg', builtin.live_grep, {})
 vim.keymap.set('n', ' fb', builtin.buffers, {})
 vim.keymap.set('n', ' fh', builtin.help_tags, {})
+
+--copilotChat
+vim.keymap.set('n', ' zc', ':CopilotChat<CR>')
+vim.keymap.set('v', ' ze', ':CopilotChatExplain<CR>')
+vim.keymap.set('v', ' zr', ':CopilotChatReview<CR>')
+vim.keymap.set('v', ' zf', ':CopilotChatFix<CR>')
+vim.keymap.set('v', ' zo', ':CopilotChatOptimize<CR>')
+vim.keymap.set('v', ' zd', ':CopilotChatDocs<CR>')
+vim.keymap.set('v', ' zt', ':CopilotChatTests<CR>')
+vim.keymap.set('n', ' zm', ':CopilotChatCommit<CR>')
+vim.keymap.set('v', ' zm', ':CopilotChatCommit<CR>')
+vim.keymap.set('n', ' zt', ':CopilotChatToggle<CR>')
+
+
 
 --harpoon
 require('harpoon').setup({
