@@ -2,6 +2,9 @@
 
 vim.wo.number = true
 vim.opt.clipboard="unnamed,unnamedplus"
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 local uv = vim.uv or vim.loop
@@ -55,32 +58,32 @@ require('lazy').setup({
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
   },
-  -- {
-  -- "CopilotC-Nvim/CopilotChat.nvim",
-  -- dependencies = {
-  --   { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
-  --   { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
-  -- },
-  -- build = "make tiktoken", -- Only on MacOS or Linux
-  -- opts = {
-  --   -- See Configuration section for options
-  -- },
-  -- -- See Commands section for default commands if you want to lazy load on them
-  -- },
-  --
-  -- supermaven
   {
-      "supermaven-inc/supermaven-nvim",
-      config = function()
-        require("supermaven-nvim").setup({
-	  keymaps = {
-	    accept_suggestion = "<C-H>",
-	    clear_suggestion = "<C-]>",
-	    accept_word = "<C-j>",
-	  },
-	})
-      end,
-    }
+  "CopilotC-Nvim/CopilotChat.nvim",
+  dependencies = {
+    { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+    { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+  },
+  build = "make tiktoken", -- Only on MacOS or Linux
+  opts = {
+    -- See Configuration section for options
+  },
+  -- See Commands section for default commands if you want to lazy load on them
+  },
+
+  -- supermaven
+ --  {
+ --      "supermaven-inc/supermaven-nvim",
+ --      config = function()
+ --        require("supermaven-nvim").setup({
+	--   keymaps = {
+	--     accept_suggestion = "<C-H>",
+	--     clear_suggestion = "<C-]>",
+	--     accept_word = "<C-j>",
+	--   },
+	-- })
+ --      end,
+ --    }
 })
 
 -- colorscheme
